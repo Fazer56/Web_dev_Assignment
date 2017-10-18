@@ -1,0 +1,27 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+ .navbar-default {
+    background-color: #0f006f;
+	
+ }
+
+.theme-showcase .navbar-default {
+  background-color: blue;
+}
+.theme-showcase .navbar .container {
+  width: auto;
+  background-color: blue;
+}
