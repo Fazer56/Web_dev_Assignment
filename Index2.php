@@ -70,9 +70,15 @@
       			<img src="http://static.tumblr.com/8bfc962a5ca8f773d634b9aec670e029/yxql1hy/tjtov7rlt/tumblr_static_26osk19e9qck84sgcwogsw88w.jpg" alt="Los Angeles">
     		</div>
 
+<<<<<<< HEAD:Index2.php
 		    <div class="item">
 		      <img src="http://www.jbsuits.com/blog/wp-content/uploads/2017/03/deadpool-ryan-ronalds.jpg" alt="Chicago">
 		    </div>
+=======
+    <div class="item">
+      <img src="http://assets1.ignimgs.com/2017/08/16/it-ver3-xlg-1502893456891_1280w.jpg" alt="Chicago">
+    </div>
+>>>>>>> origin/master:Index.html
 
 		    <div class="item">
 		      <img src="https://ewedit.files.wordpress.com/2017/06/dunkirk_sdtk_cover_01_1425px_rgb_300dpi.jpg?w=2400&h=2400" alt="New York">
