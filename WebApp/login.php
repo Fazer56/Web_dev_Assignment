@@ -81,6 +81,9 @@
               <div class="form-group">
               <label for="username" >Username: </label>
                 <input type="text" class="form-control" id="username" name="username" pattern="[A-Za-z0-9]+" required>
+				
+				<label for="password" >Password: </label> 
+                <input type="text" class="form-control" id="password" name="password" pattern="[A-Za-z0-9]+" required>
                 
 
                 <label for="firstName" >First Name: </label>
