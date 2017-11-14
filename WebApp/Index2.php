@@ -1,6 +1,9 @@
 <?php
   session_start();
 ?>
+
+
+
 <!DOCTYPE Html>
 <html>
 	<head>
@@ -32,11 +35,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index2.php">Movies AF</a>
+              <a class="navbar-brand" href="/">Movies AF</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
-               <li class="active"><a href="index2.php">Home</a></li>
+                <li class="active"><a href="/">Home</a></li>
                 <li ><a href="/aboutapp">Movies</a></li>
         <li><a href="#donate">Directors</a></li>
         <li><a href="/volunteer/">Actors</a></li>
@@ -56,6 +59,10 @@
 
       </div>
     </div>
+    <?php if($_SESSION['loggedIn']): ?>
+  <span>Welcome <?php echo $_SESSION['username']; ?></span>
+  <?php endif; ?>
+  
      <div id="myCarousel" class="carousel slide" data-ride="carousel">
   		<!-- Indicators -->
 		  <ol class="carousel-indicators">
@@ -63,27 +70,19 @@
 		    <li data-target="#myCarousel" data-slide-to="1"></li>
 		    <li data-target="#myCarousel" data-slide-to="2"></li>
 		  </ol>
-		  
+
   <!-- Wrapper for slides -->
   		<div class="carousel-inner">
     		<div class="item active">
-      			<a href="bladerunner.php"><img src="http://static.tumblr.com/8bfc962a5ca8f773d634b9aec670e029/yxql1hy/tjtov7rlt/tumblr_static_26osk19e9qck84sgcwogsw88w.jpg" alt="Blade Runner"></a>
+      			<img src="http://static.tumblr.com/8bfc962a5ca8f773d634b9aec670e029/yxql1hy/tjtov7rlt/tumblr_static_26osk19e9qck84sgcwogsw88w.jpg" alt="Los Angeles">
     		</div>
 
 		    <div class="item">
-		      <a href="avatar.php"><img src="http://xdesktopwallpapers.com/wp-content/uploads/2011/04/Avatar-Movie-Poster.jpg" alt="avatar"></a>
+		      <img src="http://www.jbsuits.com/blog/wp-content/uploads/2017/03/deadpool-ryan-ronalds.jpg" alt="Chicago">
 		    </div>
 
 		    <div class="item">
-		      <a href="dunkirk.php"><img src="https://i.imgur.com/bc2I2MB.jpg" alt="New York"></a>
-		    </div>
-			
-			<div class="item">
-		      <a href="paddington.php"><img src="https://shyfyy.files.wordpress.com/2017/10/paddington2-3.jpg" alt="New York"></a>
-		    </div>
-			
-			<div class="item">
-		      <a href="Kong.php"><img src="https://www.hdwallpapers.in/walls/kong_skull_island_4k-wide.jpg" alt="Kong"></a>
+		      <img src="https://ewedit.files.wordpress.com/2017/06/dunkirk_sdtk_cover_01_1425px_rgb_300dpi.jpg?w=2400&h=2400" alt="New York">
 		    </div>
   		</div>
 
