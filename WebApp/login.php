@@ -29,14 +29,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/">Movies AF</a>
+              <a class="navbar-brand" href="index.php">Movies AF</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
                 <li class="active"><a href="/">Home</a></li>
                 <li ><a href="/aboutapp">Movies</a></li>
-        <li><a href="#donate">Directors</a></li>
-        <li><a href="/volunteer/">Actors</a></li>
+				<li><a href="feedback.php">Feedback</a></li> 
                 <li><a href="/contact">Watchlist</a></li>     
                 <li> </li>
                 <li> </li>

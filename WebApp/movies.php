@@ -48,9 +48,7 @@
                 <li class="active"><a href="index.php">Home</a></li>
                 <li ><a href="movies.php">Movies</a></li>
                 <li><a href="/contact">Watchlist</a></li>     
-                <li> </li>
-                <li> </li>
-                <li> </li> 
+				<li><a href="feedback.php">Feedback</a></li> 
               </ul>
 
               <label style="margin-top: 10px;color:white;">Search </label> 
