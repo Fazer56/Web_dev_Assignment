@@ -36,27 +36,27 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
-               <li class="active"><a href="index2.php">Home</a></li>
-                <li ><a href="/aboutapp">Movies</a></li>
-        <li><a href="#donate">Directors</a></li>
-        <li><a href="/volunteer/">Actors</a></li>
-                <li><a href="/contact">Watchlist</a></li>     
+               <li class="active"><a href="index.php">Home</a></li>
+                <li ><a href="movies.php">Movies</a></li>
+                <li><a href="/contact">Watchlist</a></li>
+				<li><a href="feedback.php">Feedback</a></li> 
                 <li> </li>
                 <li> </li>
                 <li> </li> 
               </ul>
 
+			  
               <label style="margin-top: 10px;color:white;">Search </label> 
               <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
               <a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"></a>
               
-            </div>
+			</div>
           </div>
         </nav>
 
       </div>
     </div>
-     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+     <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: -10%;">
   		<!-- Indicators -->
 		  <ol class="carousel-indicators">
 		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -99,7 +99,6 @@
 </div>
 
 	<script>
-
 	</script>
 
 	</body>

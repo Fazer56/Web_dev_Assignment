@@ -37,7 +37,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
                 <li class="active"><a href="index2.php">Home</a></li>
-                <li ><a href="/aboutapp">Movies</a></li>
+                <li ><a href="movies.php">Movies</a></li>
         <li><a href="#donate">Directors</a></li>
         <li><a href="/volunteer/">Actors</a></li>
                 <li><a href="/contact">Watchlist</a></li>     

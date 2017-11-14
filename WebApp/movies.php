@@ -41,14 +41,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="Index2.php">Movies AF</a>
+              <a class="navbar-brand" href="index.php">Movies AF</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
-                <li class="active"><a href="Index2.php">Home</a></li>
-                <li ><a href="/aboutapp">Movies</a></li>
-        <li><a href="#donate">Directors</a></li>
-        <li><a href="/volunteer/">Actors</a></li>
+                <li class="active"><a href="index.php">Home</a></li>
+                <li ><a href="movies.php">Movies</a></li>
                 <li><a href="/contact">Watchlist</a></li>     
                 <li> </li>
                 <li> </li>
@@ -74,6 +72,9 @@
         <div class="col-sm-4"></div>
       </div>
 
+	  
+	  <br/><br/>
+	  
       <div class="row" >
         
           <div class="col-sm-1"> 
