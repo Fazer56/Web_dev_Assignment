@@ -79,7 +79,7 @@
                 <img src="http://static.tumblr.com/8bfc962a5ca8f773d634b9aec670e029/yxql1hy/tjtov7rlt/tumblr_static_26osk19e9qck84sgcwogsw88w.jpg" style="margin-left: 60%;margin-top: 60%; height: 700%; width:700%;">
             </div>
             <div class="col-sm-3"></div>
-          <div class="col-sm-6"> <h3> 1. Blade Runner </h3> <p>Rating 8.3</p> <br/><p>A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who's been missing for thirty years. </p></div>
+          <div class="col-sm-6"> <h3> 1. Blade Runner dsad</h3> <p>Rating 8.3</p> <br/><p>A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who's been missing for thirty years. </p></div>
        
       </div>
 
