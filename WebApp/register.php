@@ -1,4 +1,5 @@
-		
+	
+	
 <?php
 
 	$usernameErr = $firstnameErr = $lastnameErr = $emailErr = $genderErr = $websiteErr = "";
@@ -57,9 +58,9 @@ function test_input($data) {
 }	
 
 
-	$servername="localhost";
-	$username="root";
-	$password="faoilean56";
+	$servername="147.252.138.63";
+	$username="root2";
+	$password="alex";
 	$dbname="database";
 
 try {
@@ -68,18 +69,18 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // prepare sql and bind parameters
-   $stmt =$conn->prepare("INSERT INTO myuser(userName, password, firstName,lastName, email) 
+   $stmt =$conn->prepare("INSERT INTO myuser(username, password, firstname, lastname, email) 
 		VALUES(:username, :password, :firstname, :lastname, :email)");
 
-	$stmt->bindParam(':username', $username1);
-  $stmt->bindParam(':password', $password);
+	$stmt->bindParam(':username', $username);
+	$stmt->bindParam(':password', $password);
 	$stmt->bindParam(':firstname', $firstname);
 	$stmt->bindParam(':lastname', $lastname);
 	$stmt->bindParam(':email', $email);
 
     // insert a row
-    $username1 = $_POST["username"];
-    $password = $_POST["password"];
+    $username = $_POST["username"];
+	$password = $_POST["password"];
     $firstname = $_POST["firstName"];
     $lastname = $_POST["lastName"];
     $email = $_POST["email"];
