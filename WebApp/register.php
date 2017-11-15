@@ -58,7 +58,7 @@ function test_input($data) {
 }	
 
 
-	$servername="147.252.138.63";
+	$servername="147.252.138.17";
 	$username="root2";
 	$password="alex";
 	$dbname="database";

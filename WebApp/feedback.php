@@ -89,7 +89,7 @@
 				</br></br></br></br></br></br></br></br></br></br></br></br></br>
 				
 				
-				<form id="form">
+				<form id="form" method="post" action="postfeedback.php">
 				<div class="form-group">
 				<center>
 				<fieldset style="width: 450px">
@@ -110,17 +110,16 @@
 				<br><br>
 				
 				Date of Birth(DD/MM/YYYY):  
-				<input class="form-control" id="Date" type="text" name="Date" required>
+				<input class="form-control" id="Date" type="text" name="date" required>
 				<p id="date_val" style="red"></p>
 
 				<script>
 						$("#Date").datepicker({maxDate: 0, changeMonth: true, changeYear: true, dateFormat: "dd-mm-yyyy"});
 				</script>
-				<br><br><br><br></br></br></br>
+				<br><br><br><br></br></br></br></br>
 
-				Please Leave Your Feedback Below<input class="form-control" id="feedback" type="text" style="height: 150px" name="feedback" required>
+				Please Leave Your Feedback Below<textarea rows="5" cols="50" class="form-control" id="feedback" name="feedback" required></textarea>
 				<br></br>
-				
 
 				<input class="btn btn-primary" type="submit" name="Submit" onclick="Validation()">        
 				<input class="btn btn-primary" type="reset" name="Reset" value="Clear">
