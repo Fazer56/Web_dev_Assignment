@@ -4,6 +4,16 @@
 	<title>
 
 	</title>
+	
+	<style>
+		body {
+
+				background-image: url("http://thewallpaper.co/wp-content/uploads/2016/03/cool-background-textures-high-resolution-images-desktop-images-samsung-wallpaper-desktop-images-for-mac-windows-wallpaper-amazing-widescreen-artwork-1920x1200-1440x900.jpg");
+				background-repeat: no-repeat;
+				background-attachment: fixed; 
+			  }
+	</style>
+	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
   <link rel='stylesheet' href="css/bootstrap.min.css" type='text/css'/> <!-- this can be applied to all pages to add bootstrap css //-->
   <link rel='stylesheet' href="css/theme.css" type='text/css'/>
@@ -53,13 +63,21 @@
 
       </div>
     </div>
-     
+     <div class="container-fluid" style=" margin: auto; width:50%; background-color: #fcfcff; margin-top: -2%;">
+	 
 	 <center>
 	 
+	 </br></br></br></br></br></br></br>
 	<h3> Thank you for youre feedback, it has been recorded.
 	 </h3>
+	 </br></br></br></br>
 	 <a href="index.php"><button class="btn btn-primary" type="button" >Home</button></a>
+	 
+	 
+	 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+	 </br></br></br>
 	 </center>
+	 </div>
 	<script>
 
 	</script>
