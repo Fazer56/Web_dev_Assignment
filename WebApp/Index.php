@@ -1,5 +1,19 @@
 <?php
   session_start();
+  require 'core.php';
+  //include 'login.php';
+  require 'connect.php';
+  echo $_SESSION['id'];
+
+                  if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                  {
+                    echo "<p style='color:red; float:right;'>".$_SESSION['username1']."</p>";
+                  }
+                  else
+                  {
+                      echo "log-in";
+                  }  
+
 ?>
 <!DOCTYPE Html>
 <html>
@@ -38,17 +52,23 @@
               <ul class="nav navbar-nav" >
                <li class="active"><a href="index.php">Home</a></li>
                 <li ><a href="movies.php">Movies</a></li>
-                <li><a href="/contact">Watchlist</a></li>
+                <li><a href="watchlist.php">Watchlist</a></li>
 				<li><a href="feedback.php">Feedback</a></li> 
                 <li> </li>
                 <li> </li>
                 <li> </li> 
               </ul>
 
-			  
-              <label style="margin-top: 10px;color:white;">Search </label> 
-              <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
-              <a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"></a>
+			         <?php
+   
+                  
+               ?>
+               <form id="form2" method="post">
+                <label style="margin-top: 10px;color:white;">Search</label> 
+                <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
+                <input type="submit" id="searchBtn" value="search"> 
+                <a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"></a>
+              </form>
               
 			</div>
           </div>
@@ -98,8 +118,72 @@
 		  </a>
 </div>
 
-	<script>
-	</script>
+  <?php
+
+    $searchErr = ""; 
+    $search = "";
+    
+   /* if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+      if (empty($_POST["search"])) {
+        $searchErr = "Enter search please";
+      } 
+      else {
+      $searchErr = test_input($_POST["search"]);
+       
+      }
+
+      }
+*
+
+   
+
+
+    $servername="localhost";
+    $username="root";
+    $password="faoilean56";
+    $dbname="database";
+
+   
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  } 
+
+     $search = $conn->escape_string($_POST["search"]); //protects against sql injections
+   
+
+     $sql = "SELECT movie_name FROM movies WHERE movie_name LIKE '%$search%' ";
+
+     $result = $conn->query($sql);
+
+     if( $result->num_rows > 0 ) {
+      
+      
+      $_SESSION['username1'] = "Welcome ".$username1;  
+       header("Location: login.php");
+      
+    }
+    else if( $result->num_rows == 0 ){
+      $_SESSION['username1'] = "Error Invalid Login";
+
+       header("Location: login.php");
+    }
+    else{
+       $_SESSION['username1'] = "";
+    }
+        
+
+    
+
+    
+  $conn = null;
+
+*/
+  ?> 
 
 	</body>
 </html>
