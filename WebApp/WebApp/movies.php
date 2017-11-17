@@ -62,32 +62,44 @@ function swapContent(cv){
               <ul class="nav navbar-nav" >
                 <li ><a href="Index.php">Home</a></li>
                 <li class="active"><a href="movies.php">Movies</a></li>
-                <li><a href="/contact">Watchlist</a></li>     
+                <li><a href="watchlist.php">Profile</a></li>   
+                 <li><a href="feedback.php">Feedback</a></li>    
                 <li> </li>
                 <li> </li>
-                <li> </li> 
+                <li> 
+                 </li> 
+              <li> 
+                  <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                                {
+                                  echo "<p style='color: #759CBD; margin-top: 10px; margin-left: 20px; float:right;'><b>".$_SESSION['username1']."</b></p>";
+                                }
+                                else
+                                {
+                                    echo "";
+                                }  
+                  ?>
+                </li>
               </ul>
+               <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                    {
 
-
-              <label style="margin-top: 10px;color:white;">Search </label> 
-              <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
-              <a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"></a>
+                         echo '<a href="logout.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-out"> </a>';
+                   }   
+                   else
+                   {
+                      echo '<a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"> </a>';
+                   }
+              ?>
+             
               
             </div>
           </div>
         </nav>
 
       </div>
-      <?php
-      if(isset($_SESSION['id']) && !empty($_SESSION['id']))
-                  {
-                    echo "<p style='color:red; float:right;'>".$_SESSION['username1']."</p>";
-                  }
-                  else
-                  {
-                      echo "log-in";
-                  }  
-            ?>
+      
 
     </div>
      <div class="container-fluid" style=" margin-left: 15%; width:50%; background-color: #fcfcff;margin-top: -2%;">
@@ -104,16 +116,7 @@ function swapContent(cv){
 
         $id = isset($_GET['id']) ? $_GET['id'] : '';
 
-          $servername="147.252.138.146";
-          $username="root2";
-          $password="alex";
-          $dbname="database";
 
-          $conn = new mysqli($servername, $username, $password, $dbname);
-          // Check connection
-          if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-          } 
 
 
           $sql = "SELECT movie_name, movie_id, rating, movie_img FROM movies";
@@ -131,10 +134,10 @@ function swapContent(cv){
                   echo '<div class="row" style="padding-top: 5%;">
 								<div class ="col-sm-1">
 								<a href="#" onClick="return false" onmousedown="javascript:swapContent('.$row['movie_id'].')">
-								<input type="image" name="'.$row['movie_id'].'" src="'.$row['movie_img'].'" style="margin-left: 60%;margin-top: 60%; height: 700%; width:700%;"> </a>
+								<input type="image" name="'.$row['movie_id'].'" src="'.$row['movie_img'].'" style="margin-left: 20%;margin-top: 60%; height: 700%; width:700%;"> </a>
 								  </div>
 								   <div class="col-sm-3"></div>
-								  <div class="col-sm-6"> <legend><h3>'.$row['movie_id'].'. '.$row['movie_name'].'</h3> </legend><p>Rating '.$row['rating'].'</p><br/> <input type="button" action="add.php" method="POST" value="Add To Watchlist" name="'.$_SESSION['id'].'"> <br/></div>
+								  <div class="col-sm-6"> <legend><h3>'.$row['movie_id'].'. '.$row['movie_name'].'</h3> </legend><p>Rating '.$row['rating'].'</p><br/> <br/></div>
 							</div>';
 						  
 			   }
@@ -153,7 +156,7 @@ function swapContent(cv){
 
     </div>
      <div id="myDiv">
-		<div class="container" style="width: 30%; height: 30%; position: fixed; left: 950px; top: 100px">
+		<div class="container" style="width: 30%; height: 30%; position: fixed; left: 825px; top: 100px">
 		  <div class="jumbotron">
 			<legend><Center><h3>Select a Movie</h3></center></legend>
 			<img src="https://www.kolayuyelik.com/wp-content/uploads/2015/01/Digiturk-film.png"  width="330" height="330">

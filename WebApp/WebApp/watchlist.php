@@ -43,22 +43,41 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="Index2.php">Movies AF</a>
+              <a class="navbar-brand" href="Index.php">Movies AF</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
-                <li ><a href="Index2.php">Home</a></li>
-                <li class="active"><a href="/aboutapp">Movies</a></li>
-                <li><a href="/contact">Watchlist</a></li>     
+                <li ><a href="Index.php">Home</a></li>
+                <li ><a href="movies.php">Movies</a></li>
+                <li class="active"><a href="watchlist.php">Profile</a></li>  
+                <li><a href="feedback.php">Feedback</a></li>    
                 <li> </li>
                 <li> </li>
-                <li> </li> 
+                <li> 
+                  <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                                {
+                                  echo "<p style='color: #759CBD; margin-top: 10px; margin-left: 20px; float:right;'><b>".$_SESSION['username1']."</b></p>";
+                                }
+                                else
+                                {
+                                    echo "";
+                                }  
+                  ?>
+
+                </li> 
               </ul>
+                <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                    {
 
-
-              <label style="margin-top: 10px;color:white;">Search </label> 
-              <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
-              <a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"></a>
+                         echo '<a href="logout.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-out"> </a>';
+                   }   
+                   else
+                   {
+                      echo '<a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"> </a>';
+                   }
+              ?>
               
             </div>
           </div>
@@ -69,6 +88,9 @@
      <div class="container-fluid" style=" margin: auto; width:50%; background-color: #fcfcff;margin-top: -2%; margin-bottom: 20%;">
      
      <?php
+
+      if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+      {
          if($_SERVER["REQUEST_METHOD"] == "POST")
          {
 
@@ -90,22 +112,21 @@
 
                  if(move_uploaded_file($tmpname, $location.$name))
                  {
-                  $newloc = $location.$name;
+                    $newloc = $location.$name;
+                    $jon = $_SESSION['id'];
 
+                    //$sqlupdate1 = "UPDATE table SET commodity_quantity=".$qty."WHERE user=".addslashes($rows['user'])."'";
+                    $sql = "UPDATE myuser SET profile_pic = '$newloc' WHERE user_id = $jon";
+                    //mysql_query("UPDATE blogEntry SET content = '$udcontent', title = '$udtitle' WHERE id = $id")
 
-                  //$sqlupdate1 = "UPDATE table SET commodity_quantity=".$qty."WHERE user=".addslashes($rows['user'])."'";
-                  $sql = "UPDATE myuser SET profile_pic = ".$newloc." WHERE user_id = ".$_SESSION['id']."'";
-
-                  if ($conn->query($sql) === TRUE) {
-                      echo "<br><br><br>Record updated successfully";
-                  } 
-                  else 
-                  {
-                          echo "Error updating record: " . $conn->error;
-                  }
-                 
-
-                  echo '<br>Uploaded'.$newloc.$_SESSION['id'];
+                    if ($conn->query($sql) === TRUE) {
+                        echo "<br><br><br>Record updated successfully";
+                    } 
+                    else 
+                    {
+                            echo "Error updating record: " . $conn->error;
+                    }
+                   
 
                  } //.name name of uploaded file
                  else
@@ -124,6 +145,12 @@
 
       }
 
+    }
+    else
+    {
+      echo '<h4>Please log in!</h4> <a href="login.php"><input style="margin-top: 10px; float:centre;" type="button" id="btn1" class="btn btn-primary" value="log-in"> </a>';
+    }
+
       ?>
      
       <div class="row">
@@ -134,8 +161,11 @@
         <div class="col-sm-4"> 
             <form id="pForm" method="POST" action="watchlist.php" enctype="multipart/form-data">
             <br>
-            <input type="file" vlaue="Upload Picture" name="file">
-            <input type="submit" name="submit" value="Upload Picture">
+            <br>
+            <br>
+
+            <input type="file" vlaue="Upload Picture" name="file"> <br/> <br/> <br/> <br/>
+            <input type="submit" class="btn btn-primary" name="submit" value="Upload Picture">
             </form>
         </div>
       </div>
@@ -143,31 +173,35 @@
       <div class="row">
         <div class="col-sm-4"> 
           <?php
-           if($_SERVER["REQUEST_METHOD"] == "POST"){
-            echo  '<img src="'.$location.$name.'" class="img-thumbnail" alt="Cinque Terre" width="304" height="300">' ;
-           }
-           else
-           {
-              echo '<img src="" class="img-thumbnail" alt="Upload Profile Picture" width="304" height="300">';
-           }
-           ?>
-        </div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-      </div>
+            if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+            {
+                  $jon = $_SESSION['id'];
+                  $sql = "SELECT profile_pic, firstname, lastname FROM myuser WHERE user_id = $jon";
+                  $result = $conn->query($sql);
 
-        <div class="row">
-        <div class="col-sm-4"> <h6>Name: </h6>   </div>
-        <div class="col-sm-4">  
-           
+                  if($result->num_rows > 0)
+                  {
+                    $row = $result->fetch_assoc();
+                  
+                    echo  '<img src="'.$row['profile_pic'].'" class="img-thumbnail" alt="Cinque Terre" width="304" height="300">
+                              <br/> <br/> <br/> <br/>
+                          <div class="row">
+                          <div class="col-sm-8"> <h5>Name: <br> '.$row['firstname'].' '.$row['lastname'].'</h5></div>';
+                  }
+                  else
+                   {
+                      echo '<img src="" class="img-thumbnail" alt="Upload Profile Picture" width="304" height="300">';
+                   }
+              
+                
+            }
+            else
+            {
+                  echo '<p>Please sign to access profile!</p>';
+            }
 
-         </div>
-        <div class="col-sm-4"></div>
-      </div>
-     
+          ?>
         
-      
-
     </div>
      
     </div>

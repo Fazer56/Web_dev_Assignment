@@ -2,6 +2,8 @@
 	
 <?php
 
+  require 'connect.php';
+
 	$nameErr = $emailErr = $genderErr = $dateErr = $feedbackErr = "";
 	$name = $email = $gender = $date = $feedback = "";
 	
@@ -48,9 +50,9 @@ function test_input($data) {
 }	
 
 
-	$servername="147.252.138.17";
-	$username="root2";
-	$password="alex";
+	$servername="localhost";
+	$username="root";
+	$password="faoilean56";
 	$dbname="database";
 
 try {
@@ -64,7 +66,7 @@ try {
 
 	$stmt->bindParam(':name', $name);
 	$stmt->bindParam(':email', $email);
-	$stmt->bindParam(':Gender', $gender);
+	$stmt->bindParam(':gender', $gender);
 	$stmt->bindParam(':date', $date);
 	$stmt->bindParam(':feedback', $feedback);
 

@@ -1,3 +1,11 @@
+<?php
+  require 'core.php';
+   session_start();
+  
+   
+   header('Refresh: 3; URL = index.php');
+?>
+
 <!DOCTYPE Html>
 <html>
 	<head>
@@ -39,23 +47,41 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index2.php">Movies AF</a>
+              <a class="navbar-brand" href="index.php">Movies AF</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
-                <li class="active"><a href="index2.php">Home</a></li>
+                <li class="active"><a href="index.php">Home</a></li>
                 <li ><a href="movies.php">Movies</a></li>
-        <li><a href="#donate">Directors</a></li>
-        <li><a href="/volunteer/">Actors</a></li>
-                <li><a href="/contact">Watchlist</a></li>     
+                <li><a href="watchlist.php">Watchlist</a></li>
+                <li><a href="feedback.php">Feedback</a></li>      
                 <li> </li>
                 <li> </li>
-                <li> </li> 
+                 <li> 
+                  <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                                {
+                                  echo "<p style='color: #759CBD; margin-top: 10px; margin-left: 20px; float:right;'><b>".$_SESSION['username1']."</b></p>";
+                                }
+                                else
+                                {
+                                    echo "";
+                                }  
+                  ?>
+                </li>
               </ul>
 
-              <label style="margin-top: 10px;color:white;">Search </label> 
-              <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
-              <a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"></a>
+                <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                    {
+
+                         echo '<a href="logout.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-out"> </a>';
+                   }   
+                   else
+                   {
+                      echo '<a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"> </a>';
+                   }
+              ?>
               
             </div>
           </div>

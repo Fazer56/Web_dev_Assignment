@@ -75,7 +75,7 @@ function test_input($data)
               $_SESSION['username1'] = "Welcome ".$username1;  
               
 
-              header('Location: http://localhost/WebApp/login.php');
+              header('Location: http://localhost/WebApp/Index.php');
 
 
                
@@ -142,18 +142,29 @@ function test_input($data)
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
-                <li class="active"><a href="index.php">Home</a></li>
+                <li ><a href="index.php">Home</a></li>
                 <li ><a href="movies.php">Movies</a></li>
-                <li><a href="watchlist.php">Watchlist</a></li>  
+                <li><a href="watchlist.php">Profile</a></li>  
                 <li><a href="feedback.php">Feedback</a></li>    
                 <li> </li>
                 <li> </li>
-                <li> </li> 
+                <li> 
+                 </li> 
+              <li> 
+                  <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                                {
+                                  echo "<p style='color: #759CBD; margin-top: 10px; margin-left: 20px; float:right;'><b>".$_SESSION['username1']."</b></p>";
+                                }
+                                else
+                                {
+                                    echo "";
+                                }  
+                  ?>
+                </li> 
               </ul>
 
-              <label style="margin-top: 10px;color:white;">Search </label> 
-              <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
-              <input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" href="login.php" value="log-in">
+            
 
             </div>
           </div>
@@ -170,25 +181,12 @@ function test_input($data)
       <div class="row">
           <div class="col-sm-4"></div>
           <div class="col-sm-4">
-              <?php
-
-                  
-                  if(isset($_SESSION['id']) && !empty($_SESSION['id']))
-                  {
-
-                    echo "<p style='color:red; float:right;'>".$_SESSION['username1']."</p>"; ;
-                  }
-                  else
-                  {
-                      echo "Please log-in";
-                  }
-            
-               ?>
+             
             <h1>Login</h1>
             <form id="form1" method="POST">
             <div class="form-group">
                 <label for="username" >Username: </label>
-                <input type="text" class="form-control" name="username1" id="username1" pattern="[A-Za-z]+[0-9]+" required>
+                <input type="text" class="form-control" name="username1" id="username1" pattern="[A-Za-z0-9]+" required>
                 
 
                 <label for="username" >Password: </label>

@@ -1,3 +1,9 @@
+<?php
+	 session_start();
+  require 'core.php';
+  require 'connect.php';
+?>
+
 <!DOCTYPE Html>
 <html>
 	<head>
@@ -65,20 +71,37 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
-               <li class="active"><a href="index.php">Home</a></li>
+               <li ><a href="index.php">Home</a></li>
                 <li ><a href="movies.php">Movies</a></li>
-                <li><a href="/contact">Watchlist</a></li>
-				<li><a href="feedback.php">Feedback</a></li> 
+                <li><a href="watchlist.php">Profile</a></li>
+				<li class="active"><a href="feedback.php">Feedback</a></li> 
                 <li> </li>
                 <li> </li>
-                <li> </li> 
+               <li> 
+                  <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                                {
+                                  echo "<p style='color: #759CBD; margin-top: 10px; margin-left: 20px; float:right;'><b>".$_SESSION['username1']."</b></p>";
+                                }
+                                else
+                                {
+                                    echo "";
+                                }  
+                  ?>
+                </li>
               </ul>
+               <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                    {
 
-			  
-              <label style="margin-top: 10px;color:white;">Search </label> 
-              <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
-              <a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"></a>
-
+                         echo '<a href="logout.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-out"> </a>';
+                   }   
+                   else
+                   {
+                      echo '<a href="login.php"><input style="margin-top: 10px; float: centre; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"> </a>';
+                   }
+              ?>
+             
 			  
 			</div>
           </div>
@@ -114,7 +137,7 @@
 				<p id="date_val" style="red"></p>
 
 				<script>
-						$("#Date").datepicker({maxDate: 0, changeMonth: true, changeYear: true, dateFormat: "dd-mm-yyyy"});
+						$("#Date").datepicker({maxDate: 0, changeMonth: true, changeYear: true, dateFormat: "dd/mm/yy"});
 				</script>
 				<br><br><br><br></br></br></br></br>
 

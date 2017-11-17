@@ -2,8 +2,15 @@
 	
 <?php
 
-   include 'testData.php';
-   
+  // include 'testData.php';
+
+   function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
 	$usernameErr = $firstnameErr = $lastnameErr = $emailErr = $genderErr = $websiteErr = "";
 	$username1 = $password = $firstname = $lastname = $email = $gender = $comment = $website = "";
 	

@@ -3,16 +3,9 @@
   require 'core.php';
   //include 'login.php';
   require 'connect.php';
-  echo $_SESSION['id'];
+ 
 
-                  if(isset($_SESSION['id']) && !empty($_SESSION['id']))
-                  {
-                    echo "<p style='color:red; float:right;'>".$_SESSION['username1']."</p>";
-                  }
-                  else
-                  {
-                      echo "log-in";
-                  }  
+                 
 
 ?>
 <!DOCTYPE Html>
@@ -52,22 +45,41 @@
               <ul class="nav navbar-nav" >
                <li class="active"><a href="index.php">Home</a></li>
                 <li ><a href="movies.php">Movies</a></li>
-                <li><a href="watchlist.php">Watchlist</a></li>
-				<li><a href="feedback.php">Feedback</a></li> 
+                <li><a href="watchlist.php">Profile</a></li>
+				        <li><a href="feedback.php">Feedback</a></li> 
                 <li> </li>
                 <li> </li>
-                <li> </li> 
+                <li> 
+                  <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                                {
+                                  echo "<p style='color: #759CBD; margin-top: 10px; margin-left: 20px; float:right;'><b>".$_SESSION['username1']."</b></p>";
+                                }
+                                else
+                                {
+                                    echo "";
+                                }  
+                  ?>
+                </li> 
               </ul>
 
-			         <?php
-   
-                  
-               ?>
-               <form id="form2" method="post">
-                <label style="margin-top: 10px;color:white;">Search</label> 
+              <?php
+                    if(isset($_SESSION['id']) && !empty($_SESSION['id']))
+                    {
+
+                         echo '<a href="logout.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-out"> </a>';
+              	   }   
+                   else
+                   {
+                      echo '<a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"> </a>';
+                   }
+              ?>
+
+               <form id="form2" action="search.php" method="POST">
+                <label style="margin-top: 10px; margin-left: 30px ;color:white;">Search</label> 
                 <input type="search" style="margin-top: 10px;" name="search" id="searchBox">
                 <input type="submit" id="searchBtn" value="search"> 
-                <a href="login.php"><input style="margin-top: 10px; float:right; background: #2B2B2B; color: #0167BB;" type="button" id="btn1" value="log-in"></a>
+               
               </form>
               
 			</div>
@@ -87,23 +99,23 @@
   <!-- Wrapper for slides -->
   		<div class="carousel-inner">
     		<div class="item active">
-      			<a href="movies/bladerunner.php"><img src="http://static.tumblr.com/8bfc962a5ca8f773d634b9aec670e029/yxql1hy/tjtov7rlt/tumblr_static_26osk19e9qck84sgcwogsw88w.jpg" alt="Blade Runner"></a>
+      			<a href="movies.php"><img src="http://static.tumblr.com/8bfc962a5ca8f773d634b9aec670e029/yxql1hy/tjtov7rlt/tumblr_static_26osk19e9qck84sgcwogsw88w.jpg" alt="Blade Runner"></a>
     		</div>
 
 		    <div class="item">
-		      <a href="movies/avatar.php"><img src="http://xdesktopwallpapers.com/wp-content/uploads/2011/04/Avatar-Movie-Poster.jpg" alt="avatar"></a>
+		      <a href="movies.php"><img src="http://xdesktopwallpapers.com/wp-content/uploads/2011/04/Avatar-Movie-Poster.jpg" alt="avatar"></a>
 		    </div>
 
 		    <div class="item">
-		      <a href="movies/dunkirk.php"><img src="https://i.imgur.com/bc2I2MB.jpg" alt="New York"></a>
+		      <a href="movies.php"><img src="https://i.imgur.com/bc2I2MB.jpg" alt="New York"></a>
 		    </div>
 			
 			<div class="item">
-		      <a href="movies/paddington.php"><img src="https://shyfyy.files.wordpress.com/2017/10/paddington2-3.jpg" alt="New York"></a>
+		      <a href="movies.php"><img src="https://shyfyy.files.wordpress.com/2017/10/paddington2-3.jpg" alt="New York"></a>
 		    </div>
 			
 			<div class="item">
-		      <a href="movies/Kong.php"><img src="https://www.hdwallpapers.in/walls/kong_skull_island_4k-wide.jpg" alt="Kong"></a>
+		      <a href="movies.php"><img src="https://www.hdwallpapers.in/walls/kong_skull_island_4k-wide.jpg" alt="Kong"></a>
 		    </div>
   		</div>
 
@@ -118,72 +130,6 @@
 		  </a>
 </div>
 
-  <?php
-
-    $searchErr = ""; 
-    $search = "";
-    
-   /* if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-      if (empty($_POST["search"])) {
-        $searchErr = "Enter search please";
-      } 
-      else {
-      $searchErr = test_input($_POST["search"]);
-       
-      }
-
-      }
-*
-
-   
-
-
-    $servername="localhost";
-    $username="root";
-    $password="faoilean56";
-    $dbname="database";
-
-   
-
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  } 
-
-     $search = $conn->escape_string($_POST["search"]); //protects against sql injections
-   
-
-     $sql = "SELECT movie_name FROM movies WHERE movie_name LIKE '%$search%' ";
-
-     $result = $conn->query($sql);
-
-     if( $result->num_rows > 0 ) {
-      
-      
-      $_SESSION['username1'] = "Welcome ".$username1;  
-       header("Location: login.php");
-      
-    }
-    else if( $result->num_rows == 0 ){
-      $_SESSION['username1'] = "Error Invalid Login";
-
-       header("Location: login.php");
-    }
-    else{
-       $_SESSION['username1'] = "";
-    }
-        
-
-    
-
-    
-  $conn = null;
-
-*/
-  ?> 
-
+  
 	</body>
 </html>
