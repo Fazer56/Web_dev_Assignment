@@ -203,7 +203,7 @@ function test_input($data)
       <div class="row">
           <div class="col-sm-4"></div>
           <div class="col-sm-4">
-            <?php
+           <!-- <?php
 
                     //include 'register.php';
 
@@ -216,7 +216,7 @@ function test_input($data)
                       echo "<h4>".$_SESSION['Register']."</h4>";
                     }
             
-               ?>
+               ?> -->
 
             <h1>Register</h1>
             <form id="form2" method="POST" action="register.php">
